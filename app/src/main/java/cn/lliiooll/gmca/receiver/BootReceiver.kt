@@ -9,7 +9,7 @@ import android.os.Build
 import android.os.IBinder
 import androidx.appcompat.app.AppCompatActivity
 import cn.lliiooll.gmca.service.GMCService
-import cn.lliiooll.gmca.service.utils.checkAndroidVersion
+import cn.lliiooll.gmca.utils.checkAndroidVersion
 
 class BootReceiver : BroadcastReceiver() {
     override fun onReceive(context: Context?, intent: Intent?) {

@@ -1,4 +1,4 @@
-package cn.lliiooll.gmca.service.utils
+package cn.lliiooll.gmca.utils
 
 import android.app.Activity
 import android.app.Notification
@@ -10,9 +10,12 @@ import android.content.Intent
 import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.Build
+import android.os.Handler
+import android.os.Looper
 import android.os.PowerManager
 import android.provider.Settings
 import android.renderscript.RenderScript.Priority
+import android.util.DisplayMetrics
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.core.app.NotificationCompat
@@ -122,4 +125,13 @@ fun Context.buildNotify(name: String, desc: String, channel: String): Notificati
         .setSmallIcon(R.drawable.ic_launcher_foreground)
         .setPriority(NotificationCompat.PRIORITY_DEFAULT)
         .build()
+}
+
+fun Int.toDp(ctx: Context): Float {
+    return this.toFloat() / (ctx.getResources()
+        .getDisplayMetrics().densityDpi / DisplayMetrics.DENSITY_DEFAULT)
+}
+
+fun sync(runnable: () -> Unit) {
+    Handler(Looper.getMainLooper()).post(runnable)
 }

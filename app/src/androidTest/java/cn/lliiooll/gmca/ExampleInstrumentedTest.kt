@@ -19,6 +19,6 @@ class ExampleInstrumentedTest {
     fun useAppContext() {
         // Context of the app under test.
         val appContext = InstrumentationRegistry.getInstrumentation().targetContext
-        assertEquals("cn.lliiooll.go_mirai_client_android", appContext.packageName)
+        assertEquals("cn.lliiooll.gmca", appContext.packageName)
     }
 }

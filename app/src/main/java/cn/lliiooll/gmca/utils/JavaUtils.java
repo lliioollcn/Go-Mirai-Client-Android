@@ -1,4 +1,4 @@
-package cn.lliiooll.gmca.service.utils;
+package cn.lliiooll.gmca.utils;
 
 import java.io.IOException;
 import java.net.HttpURLConnection;
