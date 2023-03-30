@@ -39,6 +39,7 @@ import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.TextUnitType
 import androidx.compose.ui.unit.dp
 import cn.lliiooll.gmca.R
+import cn.lliiooll.gmca.utils.makeToastLong
 import cn.lliiooll.gmca.utils.toDp
 
 
@@ -89,7 +90,7 @@ fun PTitleBar() {
                 )
 
                 val m_h: Float by animateFloatAsState(
-                    targetValue = if (status) 0f else 60f,
+                    targetValue = if (status) 0f else 120f,
                 )
 
                 DropdownMenu(
@@ -110,6 +111,19 @@ fun PTitleBar() {
                         },
                         onClick = {
                             status = true
+                        },
+                        modifier = Modifier.align(Alignment.CenterHorizontally)
+                    )
+
+                    DropdownMenuItem(
+                        text = {
+                            Text(
+                                text = "开启自启动"
+                            )
+                        },
+                        onClick = {
+                            status = true
+                            ctx.makeToastLong("由于系统限制，请到系统自带的安全中心给予GMCAndroid自启权限")
                         },
                         modifier = Modifier.align(Alignment.CenterHorizontally)
                     )

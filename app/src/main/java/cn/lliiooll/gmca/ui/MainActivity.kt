@@ -56,9 +56,11 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    LazyColumn(modifier = Modifier
-                        .fillMaxHeight()
-                        .fillMaxWidth()) {
+                    LazyColumn(
+                        modifier = Modifier
+                            .fillMaxHeight()
+                            .fillMaxWidth()
+                    ) {
                         item {
                             StatusBar()
                         }
@@ -67,6 +69,9 @@ class MainActivity : ComponentActivity() {
                         }
                         item {
                             GMCStatus { initGMC() }
+                        }
+                        item {
+
                         }
                     }
                 }

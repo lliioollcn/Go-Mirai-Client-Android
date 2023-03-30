@@ -37,7 +37,6 @@ import kotlin.concurrent.thread
 @Composable
 fun GMCStatus(click: Runnable) {
     Surface(
-        color = if (isSystemInDarkTheme()) Color.DarkGray else Color.White,
         modifier = Modifier.fillMaxWidth()
     ) {
         Column(
