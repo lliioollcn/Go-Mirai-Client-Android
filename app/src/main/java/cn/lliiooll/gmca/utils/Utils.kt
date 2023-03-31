@@ -135,3 +135,9 @@ fun Int.toDp(ctx: Context): Float {
 fun sync(runnable: () -> Unit) {
     Handler(Looper.getMainLooper()).post(runnable)
 }
+
+fun Context.openUrl(url: String) {
+    val intent = Intent(Intent.ACTION_VIEW)
+    intent.data = Uri.parse(url)
+    this.startActivity(intent)
+}

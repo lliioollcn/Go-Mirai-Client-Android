@@ -6,12 +6,14 @@ import android.os.Build
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
+import androidx.compose.material3.Text
 import androidx.compose.ui.Modifier
 import cn.lliiooll.gmca.service.GMCService
 import cn.lliiooll.gmca.ui.components.GMCStatus
@@ -25,6 +27,7 @@ import cn.lliiooll.gmca.utils.checkPermissions
 import cn.lliiooll.gmca.utils.isInBatteryWhiteList
 import cn.lliiooll.gmca.utils.makeToastLong
 import cn.lliiooll.gmca.utils.makeToastSort
+import cn.lliiooll.gmca.utils.openUrl
 import cn.lliiooll.gmca.utils.requestJoinBatteryWhiteList
 import cn.lliiooll.gmca.utils.requestNotifyPermission
 import cn.lliiooll.gmca.utils.requestPermissions
@@ -49,6 +52,7 @@ class MainActivity : ComponentActivity() {
         if (checkAndroidVersion(Build.VERSION_CODES.P)) {
             permissions.add(Manifest.permission.FOREGROUND_SERVICE)
         }
+        val ctx = this
         setContent {
             GoMiraiClientAndroidTheme {
                 // A surface container using the 'background' color from the theme
@@ -71,7 +75,11 @@ class MainActivity : ComponentActivity() {
                             GMCStatus { initGMC() }
                         }
                         item {
-
+                            Text(
+                                text = "界面还没写，点这里到浏览器先凑合",
+                                modifier = Modifier.clickable {
+                                    ctx.openUrl("http://localhost:9000/")
+                                })
                         }
                     }
                 }

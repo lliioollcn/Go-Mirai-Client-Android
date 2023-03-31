@@ -1,0 +1,3 @@
+[submodule "gmc"]
+	path = gmc
+	url = https://github.com/protobufBot/Go-Mirai-Client
